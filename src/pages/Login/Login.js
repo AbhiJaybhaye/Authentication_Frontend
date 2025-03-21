@@ -18,7 +18,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:4000/api/v1/login", user);
+      const res = await axios.post("https://authentication-backend-5yc2.onrender.com/login", user);
       toast.success('Login Successful!!', {
         position: "top-center",
         theme: "colored",
