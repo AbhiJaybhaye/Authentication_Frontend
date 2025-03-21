@@ -1,0 +1,38 @@
+.button-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    block-size: 100vh;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgb(131, 27, 117) 0%, rgb(255, 0, 230) 35%, rgb(234, 156, 234) 100%);
+}
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .signup-button {
+    background-color: blue;
+    color: white;
+  }
+  
+  .signup-button:hover {
+    background-color: darkblue;
+  }
+  
+  .login-button {
+    background-color: green;
+    color: white;
+  }
+  
+  .login-button:hover {
+    background-color: darkgreen;
+  }
+  
