@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import './Signup.css';
+import { API_URL } from "../../url";
 
 const Signup = () => {
   const [user, setUser] = useState({ name: "", email: "", password: "" });
@@ -16,7 +17,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://authentication-backend-5yc2.onrender.com/signup", user);
+      await axios.post(`${API_URL}/signup`, user);
       navigate("/login");
     } catch (err) {
       console.error(err.response.data);

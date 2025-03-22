@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import './Login.css';
 import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { API_URL } from "../../url";
 
 
 const Login = () => {
@@ -18,7 +19,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://authentication-backend-5yc2.onrender.com/login", user);
+      const res = await axios.post(`${API_URL}/login`, user);
       toast.success('Login Successful!!', {
         position: "top-center",
         theme: "colored",
