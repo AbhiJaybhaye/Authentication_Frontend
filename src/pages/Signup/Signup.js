@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { toast } from "react-toastify";
 import './Signup.css';
 import { API_URL } from "../../url";
 
@@ -17,9 +18,17 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${API_URL}/api/v1signup`, user);
+      await axios.post(`${API_URL}/api/v1/signup`, user);
+      toast.success('Account created Successfully!!', {
+              position: "top-center",
+              theme: "colored",
+              });
       navigate("/login");
     } catch (err) {
+      toast.error('User already existed!!', {
+        position: "top-center",
+        theme: "colored",
+        });
       console.error(err.response.data);
     }
   };
