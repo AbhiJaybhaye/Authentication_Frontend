@@ -17,7 +17,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${API_URL}/signup`, user);
+      await axios.post(`${API_URL}/api/v1signup`, user);
       navigate("/login");
     } catch (err) {
       console.error(err.response.data);

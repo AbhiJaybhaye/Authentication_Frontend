@@ -19,7 +19,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${API_URL}/login`, user);
+      const res = await axios.post(`${API_URL}/api/v1/login`, user);
       toast.success('Login Successful!!', {
         position: "top-center",
         theme: "colored",
