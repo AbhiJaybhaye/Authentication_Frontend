@@ -1,38 +1,159 @@
-.button-container {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    block-size: 100vh;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgb(131, 27, 117) 0%, rgb(255, 0, 230) 35%, rgb(234, 156, 234) 100%);
+/* Background Styling */
+.background {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, rgb(10, 5, 108) 0%, rgba(7, 231, 245, 1) 35%, rgba(0, 212, 255, 1) 100%);
+  overflow: hidden;
 }
-  
-  button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .signup-button {
-    background-color: blue;
-    color: white;
-  }
-  
-  .signup-button:hover {
-    background-color: darkblue;
-  }
-  
-  .login-button {
-    background-color: green;
-    color: white;
-  }
-  
-  .login-button:hover {
-    background-color: darkgreen;
-  }
-  
+
+/* Signup Container */
+.signup-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.signup-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Form Styling */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-form input {
+  width: 94%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border 0.3s ease;
+}
+
+.signup-form input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Password Field */
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-container input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+.eye-icon {
+  position: absolute;
+  top: 40%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #555;
+  font-size: 18px;
+}
+
+/* Buttons */
+button {
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.signup-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.signup-button:hover {
+  background-color: #0056b3;
+}
+
+.login-button {
+  background-color: green;
+  color: white;
+}
+
+.login-button:hover {
+  background-color: darkgreen;
+}
+
+/* Login Prompt */
+.login-prompt {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-prompt span {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+/* OTP Button */
+.otp-button {
+  background-color: #8ef64e; /* Orange color */
+  color: white;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-left: 10px;
+  white-space: nowrap;
+  margin-bottom: 15px;
+}
+
+.otp-button:hover {
+  background-color: #1cbe44; /* Darker Orange */
+  transform: scale(1.05);
+}
+
+.otp-button:disabled {
+  background-color: #ffcc80; /* Light Orange */
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Email & OTP Input Container */
+.email-otp-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* OTP Input Field */
+.otp-input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border 0.3s ease;
+}
+
+.otp-input:focus {
+  border-color: #ff9800;
+  outline: none;
+}
