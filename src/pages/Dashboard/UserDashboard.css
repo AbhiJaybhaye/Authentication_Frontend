@@ -1,0 +1,61 @@
+/* Dashboard Container */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(90deg, rgb(13, 186, 199) 0%, rgb(245, 134, 7) 35%, rgb(208, 255, 0) 100%);
+    text-align: center;
+    position: relative; /* Required for absolute positioning */
+}
+
+/* Ensures text remains centered */
+.dashboard-container h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Logout Button Container - Positioned at Top Right */
+.logout-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+/* Logout Button Styling */
+.logout-button {
+    padding: 12px 24px;
+    font-size: 16px;
+    color: white;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover & Click Effects */
+.logout-button:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+.logout-button:active {
+    transform: scale(0.95);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .dashboard-container {
+        padding: 40px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .dashboard-container {
+        padding: 60px;
+    }
+}

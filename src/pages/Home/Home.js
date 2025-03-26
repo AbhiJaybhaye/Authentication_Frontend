@@ -10,19 +10,32 @@ const Home = () => {
   const [user, setUser] = useState({
     name: "",
     email: "",
+    role: "",
     password: "",
     otp: "",
   });
   const [showPassword, setShowPassword] = useState(false);
   const [otpSent, setOtpSent] = useState(false); // Track OTP state
+  const [isValidEmail, setIsValidEmail] = useState(true);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
+
+  // Validate email format before updating state
+  if (name === "email") {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    setIsValidEmail(emailRegex.test(value) || value === ""); // Update validity state
+  }
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   // Send OTP to Email
   const sendOTP = async () => {
+    toast.info("Loading, Please wait!", {
+      position: "top-center",
+      theme: "colored",
+    });
     if (!user.email) {
       toast.error("Please enter your email!", {
         position: "top-center",
@@ -31,7 +44,7 @@ const Home = () => {
       return;
     }
     try {
-      console.log("API is hitting here......")
+      console.log("API is hitting here......");
       await axios.post(`${API_URL}/api/v1/requestOtp`, { email: user.email });
       toast.success("OTP sent to your email!", {
         position: "top-center",
@@ -39,7 +52,7 @@ const Home = () => {
       });
       setOtpSent(true);
     } catch (err) {
-      toast.error("Error sending OTP!", {
+      toast.error("User already exists!", {
         position: "top-center",
         theme: "colored",
       });
@@ -77,6 +90,14 @@ const Home = () => {
     setShowPassword(!showPassword);
   };
 
+  const resetHandler = () =>{
+    setUser({name: "",
+    email: "",
+    role: "",
+    password: "",
+    otp: "",});
+    setOtpSent(false);
+  }
   return (
     <div className="background">
       <div className="signup-container">
@@ -99,7 +120,9 @@ const Home = () => {
               onChange={handleChange}
               required
               disabled={otpSent} // Disable email field after sending OTP
+              className={isValidEmail ? "" : "invalid"}
             />
+            {!isValidEmail && <span style={{ color: "red" }}>Invalid Email Format</span>}
             <button
               type="button"
               className="otp-button"
@@ -121,7 +144,21 @@ const Home = () => {
               required
             />
           )}
-
+          <div className="role-container">
+            <select
+              name="role"
+              id="role"
+              value={user.role}
+              onChange={handleChange}
+              required
+            >
+              <option value="" disabled>
+                Select Role
+              </option>
+              <option value="User">User</option>
+              <option value="Admin">Admin</option>
+            </select>
+          </div>
           <div className="password-container">
             <input
               type={showPassword ? "text" : "password"}
@@ -139,10 +176,18 @@ const Home = () => {
             Signup
           </button>
         </form>
+        <div class="reset-container">
+          <span class="reset-text">Reset details here...</span>
+          <span>
+            <button type="reset" class="reset-button" onClick={resetHandler}>
+              Reset
+            </button>
+          </span>
+        </div>
         <div className="login-prompt">
           <span>Already have an account?</span>
           <button className="login-button" onClick={() => navigate("/login")}>
-            Login
+            Login Here
           </button>
         </div>
       </div>
